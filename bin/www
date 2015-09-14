@@ -35,6 +35,12 @@ var io = require('../io')(server);
 require('../db')(io);
 
 
+/** 
+ * Initialize expressjs routes
+ */
+app.initializeRoutes(io);
+
+
 /**
  * Listen on provided port, on all network interfaces.
  */

@@ -1,11 +1,47 @@
-<script src="/socket.io/socket.io.js"></script>
-<script>
-    var socket = io.connect('http://localhost:3000');
-   
-    socket.on('root', function (data) {
-        console.log(data);
-    });
+<!DOCTYPE html>
+<html>
 
-    socket.emit('root', "A simple string from the client");
-    
-</script>
+<head>
+    <meta charset="UTF-8">
+    <title>Mongoose/Express/Socket.io Integration Test</title>
+</head>
+
+<body>
+
+    Room Name:
+    <br>
+    <input type="text" id="room_name">
+
+    <button onclick="joinRoom();"> Join Room </button>
+
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://code.jquery.com/jquery-git2.min.js"></script>
+    <script>
+        var socket = io.connect('http://localhost:3000');
+
+        socket.on('root', function (data) {
+            console.log(data);
+        });
+
+        socket.emit('root', "A simple string from the client");
+
+
+        socket.on('room update', function (data) {
+            console.log(data);
+        });
+
+        function joinRoom() {
+
+            var data = {};
+            data.name = $("#room_name").val();
+
+            socket.emit('join_room', data);
+
+        }
+    </script>
+
+</body>
+
+
+</html>

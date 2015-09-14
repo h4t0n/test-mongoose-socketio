@@ -1,0 +1,16 @@
+{
+    "jwolfe.file-tree-exclude.list": [
+        "node_modules",
+        "keys"
+    ],
+    "language": {
+        "javascript": {
+            "linting.prefer": "JSHint",
+            "linting.usePreferredOnly": true
+        }
+    },
+    "language.fileNames": {
+        "www": "javascript"
+    }
+
+}
